@@ -1,0 +1,65 @@
+
+=== q1_teacher: python q1_kd/train_teacher.py --epochs 20
+    ResNet-50 teacher: 23.72M params
+    X:\University\Semester 7\Edge\Assignment\A4\q1_kd\trainer.py:45: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+      sched.step()
+    epoch   5/20  loss 3.1877  test_acc 32.54  best 32.54  (489s)
+    epoch  10/20  loss 2.4102  test_acc 47.49  best 47.49  (850s)
+    epoch  15/20  loss 1.9120  test_acc 56.81  best 56.81  (1171s)
+    epoch  20/20  loss 1.3094  test_acc 67.16  best 67.16  (1485s)
+    Teacher final test accuracy: 67.16%
+=== q1_teacher finished in 25.1 min (exit 0) -> X:\University\Semester 7\Edge\Assignment\A4\logs\q1_teacher.log
+
+=== q1_kd: python q1_kd/train_kd.py --arch all --epochs 15
+    [kd] teacher acc 67.16%
+    [kd] mobilenetv2: 2.35M params  T=4.0 alpha=0.7 beta=1.0 feat=True
+    epoch   5/15  loss 2.5865  test_acc 38.75  best 38.75  (603s)
+    epoch  10/15  loss 1.5147  test_acc 59.85  best 59.85  (999s)
+    epoch  15/15  loss 1.1333  test_acc 66.17  best 66.26  (1394s)
+    [kd] mobilenetv2 final test accuracy: 66.17%
+    [kd] teacher acc 67.16%
+    [kd] squeezenet: 0.78M params  T=4.0 alpha=0.7 beta=1.0 feat=True
+    epoch   5/15  loss 3.4827  test_acc 15.34  best 15.34  (215s)
+    epoch  10/15  loss 2.3649  test_acc 34.40  best 34.40  (354s)
+    epoch  15/15  loss 1.8148  test_acc 53.23  best 53.23  (494s)
+    [kd] squeezenet final test accuracy: 53.23%
+    [kd] teacher acc 67.16%
+    [kd] efficientnet_lite0: 3.50M params  T=4.0 alpha=0.7 beta=1.0 feat=True
+    epoch   5/15  loss 2.4540  test_acc 40.75  best 40.75  (537s)
+    epoch  10/15  loss 1.4573  test_acc 59.89  best 59.89  (956s)
+    epoch  15/15  loss 1.0487  test_acc 67.40  best 67.40  (1373s)
+    [kd] efficientnet_lite0 final test accuracy: 67.40%
+=== q1_kd finished in 54.7 min (exit 0) -> X:\University\Semester 7\Edge\Assignment\A4\logs\q1_kd.log
+
+=== q1_baseline: python q1_kd/train_baseline.py --arch all --epochs 15
+    [baseline] mobilenetv2: 2.35M params
+    X:\University\Semester 7\Edge\Assignment\A4\q1_kd\trainer.py:45: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+      sched.step()
+    epoch   5/15  loss 2.3468  test_acc 38.51  best 38.51  (497s)
+    epoch  10/15  loss 1.7071  test_acc 51.99  best 51.99  (834s)
+    epoch  15/15  loss 1.0642  test_acc 64.52  best 64.52  (1172s)
+    [baseline] mobilenetv2 final test accuracy: 64.52%
+    [baseline] squeezenet: 0.78M params
+    epoch   5/15  loss 2.5284  test_acc 34.05  best 34.05  (171s)
+    epoch  10/15  loss 1.9843  test_acc 43.77  best 43.77  (256s)
+    epoch  15/15  loss 1.3997  test_acc 57.28  best 57.28  (342s)
+    [baseline] squeezenet final test accuracy: 57.28%
+    [baseline] efficientnet_lite0: 3.50M params
+    epoch   5/15  loss 2.3378  test_acc 37.08  best 37.08  (520s)
+    epoch  10/15  loss 1.6750  test_acc 52.66  best 52.66  (882s)
+    epoch  15/15  loss 0.9838  test_acc 65.12  best 65.12  (1243s)
+    [baseline] efficientnet_lite0 final test accuracy: 65.12%
+=== q1_baseline finished in 46.2 min (exit 0) -> X:\University\Semester 7\Edge\Assignment\A4\logs\q1_baseline.log
+
+=== q1_export_onnx: python q1_kd/export_onnx.py
+    X:\University\Semester 7\Edge\Assignment\A4\q1_kd\export_onnx.py:16: DeprecationWarning: You are using the legacy TorchScript-based ONNX export. Starting in PyTorch 2.9, the new torch.export-based ONNX exporter has become the default. Learn more about the new export logic: https://docs.pytorch.org/docs/stable/onnx_export.html. For exporting control flow: https://pytorch.org/tutorials/beginner/onnx/export_control_flow_model_to_onnx_tutorial.html
+      torch.onnx.export(model, dummy, onnx_path, input_names=["input"], output_names=["logits"], opset_version=opset,
+    X:\University\Semester 7\Edge\Assignment\A4\q1_kd\models.py:78: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+      return (logits, [mid, last]) if return_feats else logits
+    exported baseline_mobilenetv2.onnx                9.38 MB  max|torch-onnx| = 3.81e-06
+    exported baseline_squeezenet.onnx                 3.11 MB  max|torch-onnx| = 2.62e-06
+    exported baseline_efficientnet_lite0.onnx        13.95 MB  max|torch-onnx| = 3.34e-06
+    exported kd_mobilenetv2.onnx                      9.38 MB  max|torch-onnx| = 1.55e-06
+    exported kd_squeezenet.onnx                       3.11 MB  max|torch-onnx| = 2.15e-06
+    exported kd_efficientnet_lite0.onnx              13.95 MB  max|torch-onnx| = 1.19e-06
+=== q1_export_onnx finished in 0.2 min (exit 0) -> X:\University\Semester 7\Edge\Assignment\A4\logs\q1_export_onnx.log

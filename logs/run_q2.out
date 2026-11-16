@@ -1,0 +1,63 @@
+
+=== q2_search: python q2_nas/nas_search.py --population 10 --generations 5 --children 5 --epochs 3 --train-subset 15000
+    Search space size ~ 1.16e+14 architectures; constraints: {'max_latency_ms': 3.0, 'max_size_mb': 1.0, 'max_peak_memory_mb': 20.0, 'max_params_m': 0.5}
+    == initial population ==
+      #  1 REJECTED  size 1.66MB > 1.0MB
+      #  2 acc 45.66  lat 0.99ms  size 0.22MB  mem 14.7MB  fit 44.23
+      #  3 REJECTED  latency 4.19ms > 3.0ms; size 1.98MB > 1.0MB
+      #  4 REJECTED  params 0.55M > 0.5M
+      #  5 acc 51.90  lat 0.64ms  size 0.61MB  mem 13.0MB  fit 50.05
+      #  6 acc 49.52  lat 0.12ms  size 0.24MB  mem 12.7MB  fit 48.91
+      #  7 acc 52.96  lat 2.76ms  size 0.68MB  mem 15.1MB  fit 48.85
+      #  8 acc 46.94  lat 0.13ms  size 0.13MB  mem 12.6MB  fit 46.55
+      #  9 acc 42.26  lat 0.06ms  size 0.03MB  mem 12.3MB  fit 42.14
+      # 10 REJECTED  params 1.10M > 0.5M
+      # 11 acc 57.84  lat 0.40ms  size 0.22MB  mem 13.1MB  fit 57.00
+      # 12 acc 49.98  lat 0.16ms  size 0.08MB  mem 12.6MB  fit 49.65
+      # 13 acc 46.10  lat 0.19ms  size 0.11MB  mem 12.7MB  fit 45.68
+      # 14 acc 44.04  lat 0.09ms  size 0.05MB  mem 12.4MB  fit 43.85
+    == generation 1/5  best fitness so far 57.00 ==
+      # 15 acc 49.20  lat 0.33ms  size 0.20MB  mem 12.8MB  fit 48.47
+      # 16 acc 49.08  lat 0.14ms  size 0.14MB  mem 12.4MB  fit 48.66
+      # 17 acc 52.78  lat 0.64ms  size 0.61MB  mem 13.0MB  fit 50.91
+      # 18 acc 48.78  lat 0.21ms  size 0.21MB  mem 12.9MB  fit 48.16
+      # 19 REJECTED  params 0.53M > 0.5M
+    == generation 2/5  best fitness so far 57.00 ==
+      # 20 acc 48.34  lat 0.12ms  size 0.17MB  mem 13.1MB  fit 47.88
+      # 21 acc 48.64  lat 0.28ms  size 0.40MB  mem 13.0MB  fit 47.56
+      # 22 REJECTED  params 0.91M > 0.5M
+      # 23 acc 49.40  lat 0.17ms  size 0.12MB  mem 12.7MB  fit 48.99
+      # 24 acc 46.24  lat 0.42ms  size 0.08MB  mem 12.8MB  fit 45.67
+    == generation 3/5  best fitness so far 57.00 ==
+      # 25 acc 52.38  lat 2.39ms  size 0.59MB  mem 13.5MB  fit 48.81
+      # 26 REJECTED  size 1.18MB > 1.0MB
+      # 27 acc 51.64  lat 0.67ms  size 0.84MB  mem 13.3MB  fit 49.28
+      # 28 acc 57.42  lat 0.17ms  size 0.37MB  mem 12.7MB  fit 56.52
+      # 29 acc 51.20  lat 0.14ms  size 0.48MB  mem 13.1MB  fit 50.09
+    == generation 4/5  best fitness so far 57.00 ==
+      # 30 acc 49.46  lat 0.16ms  size 0.23MB  mem 12.8MB  fit 48.84
+      # 31 acc 56.26  lat 0.38ms  size 0.21MB  mem 13.5MB  fit 55.46
+      # 32 acc 54.04  lat 2.33ms  size 0.67MB  mem 14.0MB  fit 50.38
+      # 33 acc 51.48  lat 0.17ms  size 0.10MB  mem 13.0MB  fit 51.10
+      # 34 acc 52.56  lat 0.23ms  size 0.91MB  mem 13.4MB  fit 50.51
+    == generation 5/5  best fitness so far 57.00 ==
+      # 35 acc 51.68  lat 0.07ms  size 0.11MB  mem 12.1MB  fit 51.40
+      # 36 acc 54.66  lat 0.82ms  size 0.22MB  mem 13.3MB  fit 53.40
+      # 37 acc 52.20  lat 0.10ms  size 0.08MB  mem 12.4MB  fit 51.95
+      # 38 acc 50.80  lat 0.15ms  size 0.14MB  mem 12.6MB  fit 50.37
+      # 39 acc 53.42  lat 0.41ms  size 0.15MB  mem 13.1MB  fit 52.72
+    
+    Best: acc 57.84  lat 0.40ms  size 0.22MB | evaluated 39 (rejected 7) -> results/best_architecture.json
+=== q2_search finished in 10.9 min (exit 0) -> X:\University\Semester 7\Edge\Assignment\A4\logs\q2_search.log
+
+=== q2_train_best: python q2_nas/train_best.py --epochs 30
+    architecture: {"resolution": 32, "stem_channels": 24, "stages": [{"depth": 2, "channels": 64, "kernel": 5, "block": "dsconv", "act": "relu6", "stride": 1}, {"depth": 2, "channels": 16, "kernel": 5, "block": "conv", "act": "hardswish", "stride": 2}, {"depth": 1, "channels": 32, "kernel": 5, "block": "dsconv", "act": "hardswish", "stride": 2}], "head_channels": 256}
+    params: 0.053M
+    epoch   5/30  loss 1.1667  test_acc 68.56  best 68.56  (199s)
+    epoch  10/30  loss 1.0561  test_acc 64.77  best 68.56  (335s)
+    epoch  15/30  loss 1.0158  test_acc 63.57  best 75.33  (471s)
+    epoch  20/30  loss 0.9747  test_acc 72.71  best 75.41  (608s)
+    epoch  25/30  loss 0.9143  test_acc 81.13  best 81.53  (746s)
+    epoch  30/30  loss 0.8546  test_acc 85.35  best 85.35  (882s)
+    NAS-best final CIFAR-10 test accuracy: 85.35%  -> checkpoints/nas_best.pth, onnx_models/nas_best.onnx
+=== q2_train_best finished in 14.8 min (exit 0) -> X:\University\Semester 7\Edge\Assignment\A4\logs\q2_train_best.log

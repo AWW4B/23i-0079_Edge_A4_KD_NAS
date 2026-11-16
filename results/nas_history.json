@@ -1,0 +1,1855 @@
+{
+  "constraints": {
+    "max_latency_ms": 3.0,
+    "max_size_mb": 1.0,
+    "max_peak_memory_mb": 20.0,
+    "max_params_m": 0.5
+  },
+  "args": {
+    "population": 10,
+    "generations": 5,
+    "children": 5,
+    "epochs": 3,
+    "train_subset": 15000,
+    "max_latency": 3.0,
+    "max_size": 1.0,
+    "max_memory": 20.0,
+    "max_params": 0.5,
+    "lat_weight": 3.0,
+    "size_weight": 2.0,
+    "seed": 0
+  },
+  "history": [
+    {
+      "id": 1,
+      "generation": 0,
+      "arch": {
+        "resolution": 24,
+        "stem_channels": 8,
+        "stages": [
+          {
+            "depth": 2,
+            "channels": 128,
+            "kernel": 5,
+            "block": "dsconv",
+            "act": "silu",
+            "stride": 2
+          },
+          {
+            "depth": 3,
+            "channels": 32,
+            "kernel": 7,
+            "block": "conv",
+            "act": "leaky_relu",
+            "stride": 1
+          },
+          {
+            "depth": 1,
+            "channels": 48,
+            "kernel": 7,
+            "block": "conv",
+            "act": "leaky_relu",
+            "stride": 1
+          }
+        ],
+        "head_channels": 256
+      },
+      "resolution": 24,
+      "depth_total": 6,
+      "n_stages": 3,
+      "params_m": 0.413802,
+      "latency_ms": 0.9943499990185956,
+      "latency_mean_ms": 1.033151999945403,
+      "latency_p95_ms": 1.2144200007242034,
+      "peak_memory_mb": 14.80704,
+      "model_size_mb": 1.65917,
+      "threads": 1,
+      "violations": "size 1.66MB > 1.0MB",
+      "status": "rejected",
+      "val_acc": null,
+      "fitness": null
+    },
+    {
+      "id": 2,
+      "generation": 0,
+      "arch": {
+        "resolution": 32,
+        "stem_channels": 16,
+        "stages": [
+          {
+            "depth": 2,
+            "channels": 16,
+            "kernel": 5,
+            "block": "dsconv",
+            "act": "leaky_relu",
+            "stride": 1
+          },
+          {
+            "depth": 3,
+            "channels": 128,
+            "kernel": 5,
+            "block": "dsconv",
+            "act": "relu",
+            "stride": 1
+          }
+        ],
+        "head_channels": 64
+      },
+      "resolution": 32,
+      "depth_total": 5,
+      "n_stages": 2,
+      "params_m": 0.053802,
+      "latency_ms": 0.9907499988912605,
+      "latency_mean_ms": 1.0299280000981526,
+      "latency_p95_ms": 1.2086950000593786,
+      "peak_memory_mb": 14.659583999999995,
+      "model_size_mb": 0.217133,
+      "threads": 1,
+      "violations": "",
+      "status": "accepted",
+      "val_acc": 45.66,
+      "fitness": 44.234984001108735,
+      "train_time_s": 93.22756004333496
+    },
+    {
+      "id": 3,
+      "generation": 0,
+      "arch": {
+        "resolution": 24,
+        "stem_channels": 24,
+        "stages": [
+          {
+            "depth": 3,
+            "channels": 8,
+            "kernel": 7,
+            "block": "dsconv",
+            "act": "leaky_relu",
+            "stride": 1
+          },
+          {
+            "depth": 3,
+            "channels": 64,
+            "kernel": 7,
+            "block": "conv",
+            "act": "relu6",
+            "stride": 1
+          },
+          {
+            "depth": 1,
+            "channels": 24,
+            "kernel": 7,
+            "block": "dsconv",
+            "act": "relu",
+            "stride": 1
+          },
+          {
+            "depth": 2,
+            "channels": 128,
+            "kernel": 3,
+            "block": "dsconv",
+            "act": "hardswish",
+            "stride": 2
+          }
+        ],
+        "head_channels": 256
+      },
+      "resolution": 24,
+      "depth_total": 9,
+      "n_stages": 4,
+      "params_m": 0.492322,
+      "latency_ms": 4.190900001049158,
+      "latency_mean_ms": 4.2718690000037896,
+      "latency_p95_ms": 4.899735002254602,
+      "peak_memory_mb": 15.912959999999998,
+      "model_size_mb": 1.975633,
+      "threads": 1,
+      "violations": "latency 4.19ms > 3.0ms; size 1.98MB > 1.0MB",
+      "status": "rejected",
+      "val_acc": null,
+      "fitness": null
+    },
+    {
+      "id": 4,
+      "generation": 0,
+      "arch": {
+        "resolution": 32,
+        "stem_channels": 16,
+        "stages": [
+          {
+            "depth": 3,
+            "channels": 32,
+            "kernel": 7,
+            "block": "dsconv",
+            "act": "silu",
+            "stride": 1
+          },
+          {
+            "depth": 3,
+            "channels": 96,
+            "kernel": 5,
+            "block": "conv",
+            "act": "leaky_relu",
+            "stride": 1
+          }
+        ],
+        "head_channels": 64
+      },
+      "resolution": 32,
+      "depth_total": 6,
+      "n_stages": 2,
+      "params_m": 0.552394,
+      "violations": "params 0.55M > 0.5M",
+      "status": "rejected",
+      "val_acc": null,
+      "fitness": null
+    },
+    {
+      "id": 5,
+      "generation": 0,
+      "arch": {
+        "resolution": 16,
+        "stem_channels": 24,
+        "stages": [
+          {
+            "depth": 3,
+            "channels": 48,
+            "kernel": 5,
+            "block": "conv",
+            "act": "relu",
+            "stride": 1
+          },
+          {
+            "depth": 1,
+            "channels": 8,
+            "kernel": 3,
+            "block": "dsconv",
+            "act": "hardswish",
+            "stride": 2
+          }
+        ],
+        "head_channels": 256
+      },
+      "resolution": 16,
+      "depth_total": 4,
+      "n_stages": 2,
+      "params_m": 0.151042,
+      "latency_ms": 0.6378999987646239,
+      "latency_mean_ms": 0.6906559999697492,
+      "latency_p95_ms": 0.9827000005316222,
+      "peak_memory_mb": 12.988415999999994,
+      "model_size_mb": 0.607287,
+      "threads": 1,
+      "violations": "",
+      "status": "accepted",
+      "val_acc": 51.9,
+      "fitness": 50.047526001235376,
+      "train_time_s": 7.52466893196106
+    },
+    {
+      "id": 6,
+      "generation": 0,
+      "arch": {
+        "resolution": 16,
+        "stem_channels": 24,
+        "stages": [
+          {
+            "depth": 3,
+            "channels": 96,
+            "kernel": 7,
+            "block": "dsconv",
+            "act": "silu",
+            "stride": 2
+          },
+          {
+            "depth": 3,
+            "channels": 64,
+            "kernel": 3,
+            "block": "dsconv",
+            "act": "hardswish",
+            "stride": 1
+          }
+        ],
+        "head_channels": 128
+      },
+      "resolution": 16,
+      "depth_total": 6,
+      "n_stages": 2,
+      "params_m": 0.059946,
+      "latency_ms": 0.12240000069141388,
+      "latency_mean_ms": 0.12831500000174856,
+      "latency_p95_ms": 0.15393000030599066,
+      "peak_memory_mb": 12.742656000000004,
+      "model_size_mb": 0.243559,
+      "threads": 1,
+      "violations": "",
+      "status": "accepted",
+      "val_acc": 49.52,
+      "fitness": 48.91048199930859,
+      "train_time_s": 30.429983615875244
+    },
+    {
+      "id": 7,
+      "generation": 0,
+      "arch": {
+        "resolution": 32,
+        "stem_channels": 16,
+        "stages": [
+          {
+            "depth": 1,
+            "channels": 32,
+            "kernel": 3,
+            "block": "dsconv",
+            "act": "relu",
+            "stride": 1
+          },
+          {
+            "depth": 2,
+            "channels": 24,
+            "kernel": 5,
+            "block": "dsconv",
+            "act": "relu",
+            "stride": 1
+          },
+          {
+            "depth": 1,
+            "channels": 32,
+            "kernel": 3,
+            "block": "conv",
+            "act": "relu",
+            "stride": 1
+          },
+          {
+            "depth": 3,
+            "channels": 32,
+            "kernel": 7,
+            "block": "conv",
+            "act": "silu",
+            "stride": 1
+          }
+        ],
+        "head_channels": 128
+      },
+      "resolution": 32,
+      "depth_total": 7,
+      "n_stages": 4,
+      "params_m": 0.167506,
+      "latency_ms": 2.7559000009205192,
+      "latency_mean_ms": 2.83916100004717,
+      "latency_p95_ms": 3.304275001391943,
+      "peak_memory_mb": 15.147008000000007,
+      "model_size_mb": 0.675481,
+      "threads": 1,
+      "violations": "",
+      "status": "accepted",
+      "val_acc": 52.96,
+      "fitness": 48.85313799907948,
+      "train_time_s": 52.03547668457031
+    },
+    {
+      "id": 8,
+      "generation": 0,
+      "arch": {
+        "resolution": 16,
+        "stem_channels": 24,
+        "stages": [
+          {
+            "depth": 1,
+            "channels": 32,
+            "kernel": 3,
+            "block": "conv",
+            "act": "silu",
+            "stride": 1
+          },
+          {
+            "depth": 3,
+            "channels": 8,
+            "kernel": 7,
+            "block": "conv",
+            "act": "hardswish",
+            "stride": 2
+          }
+        ],
+        "head_channels": 256
+      },
+      "resolution": 16,
+      "depth_total": 4,
+      "n_stages": 2,
+      "params_m": 0.031666,
+      "latency_ms": 0.13335000039660372,
+      "latency_mean_ms": 0.137627999902179,
+      "latency_p95_ms": 0.16058499750215557,
+      "peak_memory_mb": 12.611584,
+      "model_size_mb": 0.130793,
+      "threads": 1,
+      "violations": "",
+      "status": "accepted",
+      "val_acc": 46.94,
+      "fitness": 46.54506399960339,
+      "train_time_s": 2.5512356758117676
+    },
+    {
+      "id": 9,
+      "generation": 0,
+      "arch": {
+        "resolution": 24,
+        "stem_channels": 8,
+        "stages": [
+          {
+            "depth": 1,
+            "channels": 16,
+            "kernel": 7,
+            "block": "dsconv",
+            "act": "leaky_relu",
+            "stride": 2
+          },
+          {
+            "depth": 1,
+            "channels": 8,
+            "kernel": 7,
+            "block": "dsconv",
+            "act": "relu",
+            "stride": 1
+          }
+        ],
+        "head_channels": 256
+      },
+      "resolution": 24,
+      "depth_total": 2,
+      "n_stages": 2,
+      "params_m": 0.00689,
+      "latency_ms": 0.05514999975275714,
+      "latency_mean_ms": 0.05694100025721127,
+      "latency_p95_ms": 0.06679999933112413,
+      "peak_memory_mb": 12.337152000000003,
+      "model_size_mb": 0.031045,
+      "threads": 1,
+      "violations": "",
+      "status": "accepted",
+      "val_acc": 42.26,
+      "fitness": 42.14276000024724,
+      "train_time_s": 13.33783483505249
+    },
+    {
+      "id": 10,
+      "generation": 0,
+      "arch": {
+        "resolution": 16,
+        "stem_channels": 16,
+        "stages": [
+          {
+            "depth": 2,
+            "channels": 128,
+            "kernel": 7,
+            "block": "conv",
+            "act": "relu6",
+            "stride": 1
+          },
+          {
+            "depth": 3,
+            "channels": 24,
+            "kernel": 3,
+            "block": "dsconv",
+            "act": "hardswish",
+            "stride": 2
+          },
+          {
+            "depth": 1,
+            "channels": 128,
+            "kernel": 7,
+            "block": "conv",
+            "act": "relu",
+            "stride": 2
+          }
+        ],
+        "head_channels": 256
+      },
+      "resolution": 16,
+      "depth_total": 6,
+      "n_stages": 3,
+      "params_m": 1.097082,
+      "violations": "params 1.10M > 0.5M",
+      "status": "rejected",
+      "val_acc": null,
+      "fitness": null
+    },
+    {
+      "id": 11,
+      "generation": 0,
+      "arch": {
+        "resolution": 32,
+        "stem_channels": 24,
+        "stages": [
+          {
+            "depth": 2,
+            "channels": 64,
+            "kernel": 5,
+            "block": "dsconv",
+            "act": "relu6",
+            "stride": 1
+          },
+          {
+            "depth": 2,
+            "channels": 16,
+            "kernel": 5,
+            "block": "conv",
+            "act": "hardswish",
+            "stride": 2
+          },
+          {
+            "depth": 1,
+            "channels": 32,
+            "kernel": 5,
+            "block": "dsconv",
+            "act": "hardswish",
+            "stride": 2
+          }
+        ],
+        "head_channels": 256
+      },
+      "resolution": 32,
+      "depth_total": 5,
+      "n_stages": 3,
+      "params_m": 0.053306,
+      "latency_ms": 0.39945000025909394,
+      "latency_mean_ms": 0.44146600012027193,
+      "latency_p95_ms": 0.592365000011341,
+      "peak_memory_mb": 13.127679999999998,
+      "model_size_mb": 0.21804,
+      "threads": 1,
+      "violations": "",
+      "status": "accepted",
+      "val_acc": 57.84,
+      "fitness": 57.00446999974091,
+      "train_time_s": 28.995553970336914
+    },
+    {
+      "id": 12,
+      "generation": 0,
+      "arch": {
+        "resolution": 32,
+        "stem_channels": 24,
+        "stages": [
+          {
+            "depth": 3,
+            "channels": 24,
+            "kernel": 7,
+            "block": "dsconv",
+            "act": "silu",
+            "stride": 2
+          },
+          {
+            "depth": 3,
+            "channels": 16,
+            "kernel": 3,
+            "block": "conv",
+            "act": "leaky_relu",
+            "stride": 1
+          },
+          {
+            "depth": 1,
+            "channels": 32,
+            "kernel": 7,
+            "block": "dsconv",
+            "act": "silu",
+            "stride": 2
+          }
+        ],
+        "head_channels": 64
+      },
+      "resolution": 32,
+      "depth_total": 7,
+      "n_stages": 3,
+      "params_m": 0.018618,
+      "latency_ms": 0.16479999976581894,
+      "latency_mean_ms": 0.18544800012023188,
+      "latency_p95_ms": 0.32341500082111446,
+      "peak_memory_mb": 12.595199999999998,
+      "model_size_mb": 0.082275,
+      "threads": 1,
+      "violations": "",
+      "status": "accepted",
+      "val_acc": 49.98,
+      "fitness": 49.65065000023418,
+      "train_time_s": 28.19868230819702
+    },
+    {
+      "id": 13,
+      "generation": 0,
+      "arch": {
+        "resolution": 32,
+        "stem_channels": 24,
+        "stages": [
+          {
+            "depth": 2,
+            "channels": 8,
+            "kernel": 3,
+            "block": "dsconv",
+            "act": "relu",
+            "stride": 2
+          },
+          {
+            "depth": 3,
+            "channels": 24,
+            "kernel": 5,
+            "block": "dsconv",
+            "act": "hardswish",
+            "stride": 1
+          },
+          {
+            "depth": 1,
+            "channels": 128,
+            "kernel": 5,
+            "block": "dsconv",
+            "act": "silu",
+            "stride": 1
+          }
+        ],
+        "head_channels": 128
+      },
+      "resolution": 32,
+      "depth_total": 6,
+      "n_stages": 3,
+      "params_m": 0.026242,
+      "latency_ms": 0.19380000048840884,
+      "latency_mean_ms": 0.2044800002113334,
+      "latency_p95_ms": 0.264450000031502,
+      "peak_memory_mb": 12.722175999999997,
+      "model_size_mb": 0.110614,
+      "threads": 1,
+      "violations": "",
+      "status": "accepted",
+      "val_acc": 46.1,
+      "fitness": 45.68497199951159,
+      "train_time_s": 21.116629600524902
+    },
+    {
+      "id": 14,
+      "generation": 0,
+      "arch": {
+        "resolution": 32,
+        "stem_channels": 24,
+        "stages": [
+          {
+            "depth": 1,
+            "channels": 24,
+            "kernel": 3,
+            "block": "dsconv",
+            "act": "silu",
+            "stride": 2
+          },
+          {
+            "depth": 1,
+            "channels": 32,
+            "kernel": 3,
+            "block": "conv",
+            "act": "hardswish",
+            "stride": 1
+          }
+        ],
+        "head_channels": 64
+      },
+      "resolution": 32,
+      "depth_total": 2,
+      "n_stages": 2,
+      "params_m": 0.011386,
+      "latency_ms": 0.08919999891077168,
+      "latency_mean_ms": 0.09029299999383511,
+      "latency_p95_ms": 0.09821000185183948,
+      "peak_memory_mb": 12.394495999999997,
+      "model_size_mb": 0.048346,
+      "threads": 1,
+      "violations": "",
+      "status": "accepted",
+      "val_acc": 44.04,
+      "fitness": 43.85410800108923,
+      "train_time_s": 5.017004489898682
+    },
+    {
+      "id": 15,
+      "generation": 1,
+      "arch": {
+        "resolution": 16,
+        "stem_channels": 24,
+        "head_channels": 256,
+        "stages": [
+          {
+            "depth": 3,
+            "channels": 24,
+            "kernel": 5,
+            "block": "conv",
+            "act": "leaky_relu",
+            "stride": 1
+          },
+          {
+            "depth": 1,
+            "channels": 8,
+            "kernel": 3,
+            "block": "dsconv",
+            "act": "hardswish",
+            "stride": 2
+          }
+        ]
+      },
+      "resolution": 16,
+      "depth_total": 4,
+      "n_stages": 2,
+      "params_m": 0.049642,
+      "latency_ms": 0.32605000160401687,
+      "latency_mean_ms": 0.34197199984191684,
+      "latency_p95_ms": 0.4316049969929736,
+      "peak_memory_mb": 12.754944000000002,
+      "model_size_mb": 0.202604,
+      "threads": 1,
+      "violations": "",
+      "status": "accepted",
+      "val_acc": 49.2,
+      "fitness": 48.468741998395984,
+      "train_time_s": 6.195620536804199
+    },
+    {
+      "id": 16,
+      "generation": 1,
+      "arch": {
+        "resolution": 16,
+        "stem_channels": 24,
+        "head_channels": 256,
+        "stages": [
+          {
+            "depth": 1,
+            "channels": 48,
+            "kernel": 3,
+            "block": "conv",
+            "act": "relu",
+            "stride": 1
+          },
+          {
+            "depth": 1,
+            "channels": 8,
+            "kernel": 7,
+            "block": "conv",
+            "act": "hardswish",
+            "stride": 2
+          }
+        ]
+      },
+      "resolution": 16,
+      "depth_total": 2,
+      "n_stages": 2,
+      "params_m": 0.035122,
+      "latency_ms": 0.137550001454656,
+      "latency_mean_ms": 0.14781699999730336,
+      "latency_p95_ms": 0.1881300015156739,
+      "peak_memory_mb": 12.443647999999996,
+      "model_size_mb": 0.142915,
+      "threads": 1,
+      "violations": "",
+      "status": "accepted",
+      "val_acc": 49.08,
+      "fitness": 48.656619998545345,
+      "train_time_s": 2.7422609329223633
+    },
+    {
+      "id": 17,
+      "generation": 1,
+      "arch": {
+        "resolution": 16,
+        "stem_channels": 24,
+        "stages": [
+          {
+            "depth": 3,
+            "channels": 48,
+            "kernel": 5,
+            "block": "conv",
+            "act": "relu",
+            "stride": 1
+          },
+          {
+            "depth": 1,
+            "channels": 8,
+            "kernel": 3,
+            "block": "dsconv",
+            "act": "hardswish",
+            "stride": 1
+          },
+          {
+            "depth": 1,
+            "channels": 8,
+            "kernel": 5,
+            "block": "conv",
+            "act": "relu",
+            "stride": 2
+          }
+        ],
+        "head_channels": 256
+      },
+      "resolution": 16,
+      "depth_total": 5,
+      "n_stages": 3,
+      "params_m": 0.152658,
+      "latency_ms": 0.6446499992307508,
+      "latency_mean_ms": 0.670806999769411,
+      "latency_p95_ms": 0.7902299968918669,
+      "peak_memory_mb": 13.029376,
+      "model_size_mb": 0.614181,
+      "threads": 1,
+      "violations": "",
+      "status": "accepted",
+      "val_acc": 52.78,
+      "fitness": 50.90698800076925,
+      "train_time_s": 7.678953409194946
+    },
+    {
+      "id": 18,
+      "generation": 1,
+      "arch": {
+        "resolution": 16,
+        "stem_channels": 24,
+        "stages": [
+          {
+            "depth": 1,
+            "channels": 64,
+            "kernel": 3,
+            "block": "conv",
+            "act": "silu",
+            "stride": 1
+          },
+          {
+            "depth": 3,
+            "channels": 8,
+            "kernel": 7,
+            "block": "conv",
+            "act": "hardswish",
+            "stride": 2
+          }
+        ],
+        "head_channels": 256
+      },
+      "resolution": 16,
+      "depth_total": 4,
+      "n_stages": 2,
+      "params_m": 0.051186,
+      "latency_ms": 0.207500001124572,
+      "latency_mean_ms": 0.21584700007224455,
+      "latency_p95_ms": 0.24949999988166383,
+      "peak_memory_mb": 12.939264000000001,
+      "model_size_mb": 0.208745,
+      "threads": 1,
+      "violations": "",
+      "status": "accepted",
+      "val_acc": 48.78,
+      "fitness": 48.15500999887543,
+      "train_time_s": 3.318758487701416
+    },
+    {
+      "id": 19,
+      "generation": 1,
+      "arch": {
+        "resolution": 16,
+        "stem_channels": 24,
+        "stages": [
+          {
+            "depth": 3,
+            "channels": 96,
+            "kernel": 5,
+            "block": "conv",
+            "act": "relu",
+            "stride": 1
+          },
+          {
+            "depth": 1,
+            "channels": 8,
+            "kernel": 3,
+            "block": "dsconv",
+            "act": "hardswish",
+            "stride": 2
+          }
+        ],
+        "head_channels": 256
+      },
+      "resolution": 16,
+      "depth_total": 4,
+      "n_stages": 2,
+      "params_m": 0.526642,
+      "violations": "params 0.53M > 0.5M",
+      "status": "rejected",
+      "val_acc": null,
+      "fitness": null
+    },
+    {
+      "id": 20,
+      "generation": 2,
+      "arch": {
+        "resolution": 16,
+        "stem_channels": 24,
+        "stages": [
+          {
+            "depth": 2,
+            "channels": 64,
+            "kernel": 5,
+            "block": "dsconv",
+            "act": "relu",
+            "stride": 1
+          },
+          {
+            "depth": 2,
+            "channels": 24,
+            "kernel": 3,
+            "block": "conv",
+            "act": "hardswish",
+            "stride": 2
+          },
+          {
+            "depth": 1,
+            "channels": 32,
+            "kernel": 5,
+            "block": "dsconv",
+            "act": "hardswish",
+            "stride": 2
+          },
+          {
+            "depth": 3,
+            "channels": 16,
+            "kernel": 7,
+            "block": "dsconv",
+            "act": "relu6",
+            "stride": 2
+          }
+        ],
+        "head_channels": 256
+      },
+      "resolution": 16,
+      "depth_total": 8,
+      "n_stages": 4,
+      "params_m": 0.041106,
+      "latency_ms": 0.11539999832166359,
+      "latency_mean_ms": 0.11831600018922472,
+      "latency_p95_ms": 0.13231499960966175,
+      "peak_memory_mb": 13.094912,
+      "model_size_mb": 0.17353,
+      "threads": 1,
+      "violations": "",
+      "status": "accepted",
+      "val_acc": 48.34,
+      "fitness": 47.87754000167834,
+      "train_time_s": 27.323380708694458
+    },
+    {
+      "id": 21,
+      "generation": 2,
+      "arch": {
+        "resolution": 16,
+        "stem_channels": 24,
+        "head_channels": 64,
+        "stages": [
+          {
+            "depth": 1,
+            "channels": 24,
+            "kernel": 3,
+            "block": "conv",
+            "act": "relu",
+            "stride": 1
+          },
+          {
+            "depth": 1,
+            "channels": 8,
+            "kernel": 7,
+            "block": "conv",
+            "act": "hardswish",
+            "stride": 1
+          },
+          {
+            "depth": 3,
+            "channels": 64,
+            "kernel": 3,
+            "block": "conv",
+            "act": "silu",
+            "stride": 2
+          }
+        ]
+      },
+      "resolution": 16,
+      "depth_total": 5,
+      "n_stages": 3,
+      "params_m": 0.098946,
+      "latency_ms": 0.2821000016410835,
+      "latency_mean_ms": 0.2946029998929589,
+      "latency_p95_ms": 0.36036999699717853,
+      "peak_memory_mb": 13.037568,
+      "model_size_mb": 0.40028,
+      "threads": 1,
+      "violations": "",
+      "status": "accepted",
+      "val_acc": 48.64,
+      "fitness": 47.55733999835892,
+      "train_time_s": 2.6324167251586914
+    },
+    {
+      "id": 22,
+      "generation": 2,
+      "arch": {
+        "resolution": 24,
+        "stem_channels": 24,
+        "stages": [
+          {
+            "depth": 3,
+            "channels": 128,
+            "kernel": 5,
+            "block": "conv",
+            "act": "relu",
+            "stride": 2
+          },
+          {
+            "depth": 2,
+            "channels": 8,
+            "kernel": 3,
+            "block": "dsconv",
+            "act": "hardswish",
+            "stride": 1
+          },
+          {
+            "depth": 3,
+            "channels": 8,
+            "kernel": 5,
+            "block": "conv",
+            "act": "relu",
+            "stride": 2
+          }
+        ],
+        "head_channels": 256
+      },
+      "resolution": 24,
+      "depth_total": 8,
+      "n_stages": 3,
+      "params_m": 0.910058,
+      "violations": "params 0.91M > 0.5M",
+      "status": "rejected",
+      "val_acc": null,
+      "fitness": null
+    },
+    {
+      "id": 23,
+      "generation": 2,
+      "arch": {
+        "resolution": 16,
+        "stem_channels": 24,
+        "head_channels": 128,
+        "stages": [
+          {
+            "depth": 3,
+            "channels": 16,
+            "kernel": 5,
+            "block": "conv",
+            "act": "relu",
+            "stride": 1
+          },
+          {
+            "depth": 1,
+            "channels": 8,
+            "kernel": 3,
+            "block": "dsconv",
+            "act": "hardswish",
+            "stride": 1
+          },
+          {
+            "depth": 1,
+            "channels": 24,
+            "kernel": 3,
+            "block": "dsconv",
+            "act": "relu",
+            "stride": 1
+          }
+        ]
+      },
+      "resolution": 16,
+      "depth_total": 5,
+      "n_stages": 3,
+      "params_m": 0.028458,
+      "latency_ms": 0.17064999883587006,
+      "latency_mean_ms": 0.19206799966923427,
+      "latency_p95_ms": 0.2877599983548862,
+      "peak_memory_mb": 12.668927999999994,
+      "model_size_mb": 0.119112,
+      "threads": 1,
+      "violations": "",
+      "status": "accepted",
+      "val_acc": 49.4,
+      "fitness": 48.991126001164126,
+      "train_time_s": 7.971579074859619
+    },
+    {
+      "id": 24,
+      "generation": 2,
+      "arch": {
+        "resolution": 32,
+        "stem_channels": 16,
+        "stages": [
+          {
+            "depth": 3,
+            "channels": 24,
+            "kernel": 3,
+            "block": "conv",
+            "act": "relu",
+            "stride": 1
+          },
+          {
+            "depth": 1,
+            "channels": 8,
+            "kernel": 3,
+            "block": "dsconv",
+            "act": "relu6",
+            "stride": 1
+          },
+          {
+            "depth": 1,
+            "channels": 8,
+            "kernel": 5,
+            "block": "conv",
+            "act": "relu",
+            "stride": 2
+          }
+        ],
+        "head_channels": 64
+      },
+      "resolution": 32,
+      "depth_total": 5,
+      "n_stages": 3,
+      "params_m": 0.01781,
+      "latency_ms": 0.41864999911922496,
+      "latency_mean_ms": 0.45535100009146845,
+      "latency_p95_ms": 0.6498550006654114,
+      "peak_memory_mb": 12.808191999999998,
+      "model_size_mb": 0.075716,
+      "threads": 1,
+      "violations": "",
+      "status": "accepted",
+      "val_acc": 46.24,
+      "fitness": 45.66991800088078,
+      "train_time_s": 13.835563898086548
+    },
+    {
+      "id": 25,
+      "generation": 3,
+      "arch": {
+        "resolution": 32,
+        "stem_channels": 24,
+        "stages": [
+          {
+            "depth": 3,
+            "channels": 48,
+            "kernel": 5,
+            "block": "conv",
+            "act": "relu",
+            "stride": 1
+          },
+          {
+            "depth": 1,
+            "channels": 8,
+            "kernel": 3,
+            "block": "dsconv",
+            "act": "leaky_relu",
+            "stride": 2
+          }
+        ],
+        "head_channels": 64
+      },
+      "resolution": 32,
+      "depth_total": 4,
+      "n_stages": 2,
+      "params_m": 0.147202,
+      "latency_ms": 2.3877000021457206,
+      "latency_mean_ms": 2.426866000132577,
+      "latency_p95_ms": 2.677695000966196,
+      "peak_memory_mb": 13.533184000000006,
+      "model_size_mb": 0.591511,
+      "threads": 1,
+      "violations": "",
+      "status": "accepted",
+      "val_acc": 52.38,
+      "fitness": 48.80927799785428,
+      "train_time_s": 22.811612129211426
+    },
+    {
+      "id": 26,
+      "generation": 3,
+      "arch": {
+        "resolution": 24,
+        "stem_channels": 24,
+        "stages": [
+          {
+            "depth": 3,
+            "channels": 48,
+            "kernel": 7,
+            "block": "conv",
+            "act": "relu",
+            "stride": 1
+          },
+          {
+            "depth": 1,
+            "channels": 24,
+            "kernel": 3,
+            "block": "dsconv",
+            "act": "hardswish",
+            "stride": 2
+          }
+        ],
+        "head_channels": 256
+      },
+      "resolution": 24,
+      "depth_total": 4,
+      "n_stages": 2,
+      "params_m": 0.294178,
+      "latency_ms": 2.5276000014855526,
+      "latency_mean_ms": 2.5766739998289268,
+      "latency_p95_ms": 2.68770500242681,
+      "peak_memory_mb": 13.819903999999994,
+      "model_size_mb": 1.179704,
+      "threads": 1,
+      "violations": "size 1.18MB > 1.0MB",
+      "status": "rejected",
+      "val_acc": null,
+      "fitness": null
+    },
+    {
+      "id": 27,
+      "generation": 3,
+      "arch": {
+        "resolution": 16,
+        "stem_channels": 16,
+        "stages": [
+          {
+            "depth": 3,
+            "channels": 48,
+            "kernel": 5,
+            "block": "conv",
+            "act": "relu",
+            "stride": 1
+          },
+          {
+            "depth": 1,
+            "channels": 8,
+            "kernel": 3,
+            "block": "dsconv",
+            "act": "hardswish",
+            "stride": 2
+          },
+          {
+            "depth": 3,
+            "channels": 128,
+            "kernel": 3,
+            "block": "dsconv",
+            "act": "relu6",
+            "stride": 2
+          }
+        ],
+        "head_channels": 256
+      },
+      "resolution": 16,
+      "depth_total": 7,
+      "n_stages": 3,
+      "params_m": 0.209394,
+      "latency_ms": 0.6732500005455222,
+      "latency_mean_ms": 0.7189269997979864,
+      "latency_p95_ms": 0.9875199988528038,
+      "peak_memory_mb": 13.320191999999999,
+      "model_size_mb": 0.842091,
+      "threads": 1,
+      "violations": "",
+      "status": "accepted",
+      "val_acc": 51.64,
+      "fitness": 49.28256799945448,
+      "train_time_s": 8.438947439193726
+    },
+    {
+      "id": 28,
+      "generation": 3,
+      "arch": {
+        "resolution": 32,
+        "stem_channels": 24,
+        "head_channels": 64,
+        "stages": [
+          {
+            "depth": 2,
+            "channels": 64,
+            "kernel": 5,
+            "block": "dsconv",
+            "act": "relu6",
+            "stride": 2
+          },
+          {
+            "depth": 2,
+            "channels": 32,
+            "kernel": 5,
+            "block": "conv",
+            "act": "hardswish",
+            "stride": 2
+          },
+          {
+            "depth": 1,
+            "channels": 32,
+            "kernel": 5,
+            "block": "dsconv",
+            "act": "hardswish",
+            "stride": 1
+          }
+        ]
+      },
+      "resolution": 32,
+      "depth_total": 5,
+      "n_stages": 3,
+      "params_m": 0.090666,
+      "latency_ms": 0.1678000007814262,
+      "latency_mean_ms": 0.17666799994913163,
+      "latency_p95_ms": 0.23217500129248944,
+      "peak_memory_mb": 12.673023999999998,
+      "model_size_mb": 0.367778,
+      "threads": 1,
+      "violations": "",
+      "status": "accepted",
+      "val_acc": 57.42,
+      "fitness": 56.51664399921857,
+      "train_time_s": 14.62676215171814
+    },
+    {
+      "id": 29,
+      "generation": 3,
+      "arch": {
+        "resolution": 16,
+        "stem_channels": 24,
+        "stages": [
+          {
+            "depth": 2,
+            "channels": 48,
+            "kernel": 5,
+            "block": "conv",
+            "act": "leaky_relu",
+            "stride": 2
+          },
+          {
+            "depth": 3,
+            "channels": 64,
+            "kernel": 3,
+            "block": "dsconv",
+            "act": "hardswish",
+            "stride": 2
+          }
+        ],
+        "head_channels": 256
+      },
+      "resolution": 16,
+      "depth_total": 5,
+      "n_stages": 2,
+      "params_m": 0.120338,
+      "latency_ms": 0.13760000001639128,
+      "latency_mean_ms": 0.14401899999938905,
+      "latency_p95_ms": 0.18744000153674276,
+      "peak_memory_mb": 13.053952000000002,
+      "model_size_mb": 0.484529,
+      "threads": 1,
+      "violations": "",
+      "status": "accepted",
+      "val_acc": 51.2,
+      "fitness": 50.093341999983615,
+      "train_time_s": 9.42180848121643
+    },
+    {
+      "id": 30,
+      "generation": 4,
+      "arch": {
+        "resolution": 16,
+        "stem_channels": 24,
+        "stages": [
+          {
+            "depth": 2,
+            "channels": 64,
+            "kernel": 7,
+            "block": "dsconv",
+            "act": "silu",
+            "stride": 1
+          },
+          {
+            "depth": 2,
+            "channels": 16,
+            "kernel": 5,
+            "block": "conv",
+            "act": "relu6",
+            "stride": 2
+          },
+          {
+            "depth": 1,
+            "channels": 32,
+            "kernel": 5,
+            "block": "dsconv",
+            "act": "hardswish",
+            "stride": 2
+          },
+          {
+            "depth": 1,
+            "channels": 8,
+            "kernel": 5,
+            "block": "conv",
+            "act": "relu6",
+            "stride": 1
+          }
+        ],
+        "head_channels": 256
+      },
+      "resolution": 16,
+      "depth_total": 6,
+      "n_stages": 4,
+      "params_m": 0.05569,
+      "latency_ms": 0.1648499983275542,
+      "latency_mean_ms": 0.1788029999443097,
+      "latency_p95_ms": 0.2420549993985332,
+      "peak_memory_mb": 12.845056,
+      "model_size_mb": 0.229812,
+      "threads": 1,
+      "violations": "",
+      "status": "accepted",
+      "val_acc": 49.46,
+      "fitness": 48.83552600167245,
+      "train_time_s": 13.630396604537964
+    },
+    {
+      "id": 31,
+      "generation": 4,
+      "arch": {
+        "resolution": 32,
+        "stem_channels": 16,
+        "stages": [
+          {
+            "depth": 2,
+            "channels": 64,
+            "kernel": 5,
+            "block": "dsconv",
+            "act": "relu6",
+            "stride": 1
+          },
+          {
+            "depth": 2,
+            "channels": 16,
+            "kernel": 5,
+            "block": "conv",
+            "act": "hardswish",
+            "stride": 2
+          },
+          {
+            "depth": 1,
+            "channels": 32,
+            "kernel": 5,
+            "block": "dsconv",
+            "act": "relu",
+            "stride": 1
+          }
+        ],
+        "head_channels": 256
+      },
+      "resolution": 32,
+      "depth_total": 5,
+      "n_stages": 3,
+      "params_m": 0.052346,
+      "latency_ms": 0.3757500016945414,
+      "latency_mean_ms": 0.38102300048194593,
+      "latency_p95_ms": 0.38861000139149837,
+      "peak_memory_mb": 13.492224,
+      "model_size_mb": 0.214205,
+      "threads": 1,
+      "violations": "",
+      "status": "accepted",
+      "val_acc": 56.26,
+      "fitness": 55.45583999830546,
+      "train_time_s": 32.708874464035034
+    },
+    {
+      "id": 32,
+      "generation": 4,
+      "arch": {
+        "resolution": 32,
+        "stem_channels": 24,
+        "stages": [
+          {
+            "depth": 2,
+            "channels": 64,
+            "kernel": 5,
+            "block": "conv",
+            "act": "relu6",
+            "stride": 1
+          },
+          {
+            "depth": 2,
+            "channels": 16,
+            "kernel": 3,
+            "block": "conv",
+            "act": "hardswish",
+            "stride": 2
+          },
+          {
+            "depth": 1,
+            "channels": 32,
+            "kernel": 5,
+            "block": "dsconv",
+            "act": "hardswish",
+            "stride": 2
+          }
+        ],
+        "head_channels": 256
+      },
+      "resolution": 32,
+      "depth_total": 5,
+      "n_stages": 3,
+      "params_m": 0.165618,
+      "latency_ms": 2.325800000107847,
+      "latency_mean_ms": 2.339974000096845,
+      "latency_p95_ms": 2.4029200025324826,
+      "peak_memory_mb": 14.041088000000002,
+      "model_size_mb": 0.666187,
+      "threads": 1,
+      "violations": "",
+      "status": "accepted",
+      "val_acc": 54.04,
+      "fitness": 50.38182599989215,
+      "train_time_s": 18.127366065979004
+    },
+    {
+      "id": 33,
+      "generation": 4,
+      "arch": {
+        "resolution": 24,
+        "stem_channels": 24,
+        "stages": [
+          {
+            "depth": 2,
+            "channels": 64,
+            "kernel": 5,
+            "block": "dsconv",
+            "act": "relu6",
+            "stride": 1
+          },
+          {
+            "depth": 2,
+            "channels": 16,
+            "kernel": 5,
+            "block": "dsconv",
+            "act": "hardswish",
+            "stride": 2
+          },
+          {
+            "depth": 1,
+            "channels": 32,
+            "kernel": 3,
+            "block": "dsconv",
+            "act": "hardswish",
+            "stride": 2
+          }
+        ],
+        "head_channels": 256
+      },
+      "resolution": 24,
+      "depth_total": 5,
+      "n_stages": 3,
+      "params_m": 0.02449,
+      "latency_ms": 0.1742999993439298,
+      "latency_mean_ms": 0.17521499994472833,
+      "latency_p95_ms": 0.17911499962792732,
+      "peak_memory_mb": 12.980224,
+      "model_size_mb": 0.104424,
+      "threads": 1,
+      "violations": "",
+      "status": "accepted",
+      "val_acc": 51.48,
+      "fitness": 51.096852000656064,
+      "train_time_s": 28.953469038009644
+    },
+    {
+      "id": 34,
+      "generation": 4,
+      "arch": {
+        "resolution": 16,
+        "stem_channels": 24,
+        "stages": [
+          {
+            "depth": 2,
+            "channels": 48,
+            "kernel": 7,
+            "block": "conv",
+            "act": "silu",
+            "stride": 2
+          },
+          {
+            "depth": 3,
+            "channels": 64,
+            "kernel": 7,
+            "block": "dsconv",
+            "act": "hardswish",
+            "stride": 2
+          },
+          {
+            "depth": 3,
+            "channels": 64,
+            "kernel": 3,
+            "block": "dsconv",
+            "act": "relu6",
+            "stride": 1
+          }
+        ],
+        "head_channels": 256
+      },
+      "resolution": 16,
+      "depth_total": 8,
+      "n_stages": 3,
+      "params_m": 0.225106,
+      "latency_ms": 0.23374999909719918,
+      "latency_mean_ms": 0.2352620000965544,
+      "latency_p95_ms": 0.23964500178408343,
+      "peak_memory_mb": 13.369343999999998,
+      "model_size_mb": 0.907269,
+      "threads": 1,
+      "violations": "",
+      "status": "accepted",
+      "val_acc": 52.56,
+      "fitness": 50.511712000902804,
+      "train_time_s": 17.891472578048706
+    },
+    {
+      "id": 35,
+      "generation": 5,
+      "arch": {
+        "resolution": 32,
+        "stem_channels": 24,
+        "head_channels": 64,
+        "stages": [
+          {
+            "depth": 1,
+            "channels": 64,
+            "kernel": 5,
+            "block": "dsconv",
+            "act": "relu6",
+            "stride": 2
+          },
+          {
+            "depth": 1,
+            "channels": 32,
+            "kernel": 3,
+            "block": "conv",
+            "act": "hardswish",
+            "stride": 2
+          },
+          {
+            "depth": 1,
+            "channels": 24,
+            "kernel": 5,
+            "block": "dsconv",
+            "act": "hardswish",
+            "stride": 1
+          }
+        ]
+      },
+      "resolution": 32,
+      "depth_total": 3,
+      "n_stages": 3,
+      "params_m": 0.025498,
+      "latency_ms": 0.06989999747020192,
+      "latency_mean_ms": 0.07045699981972575,
+      "latency_p95_ms": 0.07351999938691733,
+      "peak_memory_mb": 12.136448000000001,
+      "model_size_mb": 0.105567,
+      "threads": 1,
+      "violations": "",
+      "status": "accepted",
+      "val_acc": 51.68,
+      "fitness": 51.3989660025298,
+      "train_time_s": 4.7315709590911865
+    },
+    {
+      "id": 36,
+      "generation": 5,
+      "arch": {
+        "resolution": 32,
+        "stem_channels": 24,
+        "stages": [
+          {
+            "depth": 2,
+            "channels": 64,
+            "kernel": 5,
+            "block": "dsconv",
+            "act": "relu6",
+            "stride": 1
+          },
+          {
+            "depth": 2,
+            "channels": 16,
+            "kernel": 5,
+            "block": "conv",
+            "act": "hardswish",
+            "stride": 1
+          },
+          {
+            "depth": 1,
+            "channels": 32,
+            "kernel": 5,
+            "block": "dsconv",
+            "act": "hardswish",
+            "stride": 2
+          }
+        ],
+        "head_channels": 256
+      },
+      "resolution": 32,
+      "depth_total": 5,
+      "n_stages": 3,
+      "params_m": 0.053306,
+      "latency_ms": 0.8193000012397533,
+      "latency_mean_ms": 0.8205679997990956,
+      "latency_p95_ms": 0.8388399981413386,
+      "peak_memory_mb": 13.258751999999994,
+      "model_size_mb": 0.21804,
+      "threads": 1,
+      "violations": "",
+      "status": "accepted",
+      "val_acc": 54.66,
+      "fitness": 53.404619998760246,
+      "train_time_s": 33.41775631904602
+    },
+    {
+      "id": 37,
+      "generation": 5,
+      "arch": {
+        "resolution": 32,
+        "stem_channels": 8,
+        "stages": [
+          {
+            "depth": 1,
+            "channels": 32,
+            "kernel": 5,
+            "block": "dsconv",
+            "act": "relu6",
+            "stride": 1
+          },
+          {
+            "depth": 2,
+            "channels": 32,
+            "kernel": 5,
+            "block": "dsconv",
+            "act": "leaky_relu",
+            "stride": 2
+          },
+          {
+            "depth": 1,
+            "channels": 32,
+            "kernel": 5,
+            "block": "dsconv",
+            "act": "hardswish",
+            "stride": 2
+          }
+        ],
+        "head_channels": 256
+      },
+      "resolution": 32,
+      "depth_total": 4,
+      "n_stages": 3,
+      "params_m": 0.017898,
+      "latency_ms": 0.09680000039224979,
+      "latency_mean_ms": 0.10146200009330641,
+      "latency_p95_ms": 0.12410000235831828,
+      "peak_memory_mb": 12.423168000000004,
+      "model_size_mb": 0.07588,
+      "threads": 1,
+      "violations": "",
+      "status": "accepted",
+      "val_acc": 52.2,
+      "fitness": 51.95143999960775,
+      "train_time_s": 21.566401720046997
+    },
+    {
+      "id": 38,
+      "generation": 5,
+      "arch": {
+        "resolution": 32,
+        "stem_channels": 24,
+        "stages": [
+          {
+            "depth": 2,
+            "channels": 16,
+            "kernel": 5,
+            "block": "conv",
+            "act": "hardswish",
+            "stride": 2
+          },
+          {
+            "depth": 3,
+            "channels": 32,
+            "kernel": 7,
+            "block": "dsconv",
+            "act": "hardswish",
+            "stride": 2
+          }
+        ],
+        "head_channels": 256
+      },
+      "resolution": 32,
+      "depth_total": 5,
+      "n_stages": 2,
+      "params_m": 0.034866,
+      "latency_ms": 0.14555000052496325,
+      "latency_mean_ms": 0.1486000003569643,
+      "latency_p95_ms": 0.16033499832701636,
+      "peak_memory_mb": 12.636159999999997,
+      "model_size_mb": 0.143148,
+      "threads": 1,
+      "violations": "",
+      "status": "accepted",
+      "val_acc": 50.8,
+      "fitness": 50.368153999475034,
+      "train_time_s": 13.14845085144043
+    },
+    {
+      "id": 39,
+      "generation": 5,
+      "arch": {
+        "resolution": 32,
+        "stem_channels": 24,
+        "head_channels": 256,
+        "stages": [
+          {
+            "depth": 2,
+            "channels": 64,
+            "kernel": 5,
+            "block": "dsconv",
+            "act": "relu6",
+            "stride": 1
+          },
+          {
+            "depth": 2,
+            "channels": 8,
+            "kernel": 5,
+            "block": "conv",
+            "act": "hardswish",
+            "stride": 2
+          },
+          {
+            "depth": 1,
+            "channels": 32,
+            "kernel": 5,
+            "block": "dsconv",
+            "act": "relu",
+            "stride": 1
+          }
+        ]
+      },
+      "resolution": 32,
+      "depth_total": 5,
+      "n_stages": 3,
+      "params_m": 0.035202,
+      "latency_ms": 0.41104999945673626,
+      "latency_mean_ms": 0.43426299991551787,
+      "latency_p95_ms": 0.5632449969198206,
+      "peak_memory_mb": 13.08672,
+      "model_size_mb": 0.145722,
+      "threads": 1,
+      "violations": "",
+      "status": "accepted",
+      "val_acc": 53.42,
+      "fitness": 52.71750600054327,
+      "train_time_s": 30.269432067871094
+    }
+  ]
+}

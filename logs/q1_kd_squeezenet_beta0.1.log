@@ -1,0 +1,18 @@
+[kd] teacher acc 67.16%
+[kd] squeezenet: 0.78M params  T=4.0 alpha=0.7 beta=0.1 feat=True
+epoch   1/15  loss 2.5289  test_acc 11.57  best 11.57  (100s)
+epoch   2/15  loss 2.1425  test_acc 18.58  best 18.58  (127s)
+epoch   3/15  loss 1.8792  test_acc 28.16  best 28.16  (155s)
+epoch   4/15  loss 1.6697  test_acc 30.45  best 30.45  (182s)
+epoch   5/15  loss 1.5199  test_acc 34.67  best 34.67  (210s)
+epoch   6/15  loss 1.4027  test_acc 37.62  best 37.62  (238s)
+epoch   7/15  loss 1.3069  test_acc 40.44  best 40.44  (265s)
+epoch   8/15  loss 1.2216  test_acc 45.32  best 45.32  (293s)
+epoch   9/15  loss 1.1489  test_acc 46.12  best 46.12  (321s)
+epoch  10/15  loss 1.0759  test_acc 48.17  best 48.17  (348s)
+epoch  11/15  loss 1.0132  test_acc 49.54  best 49.54  (376s)
+epoch  12/15  loss 0.9424  test_acc 55.62  best 55.62  (403s)
+epoch  13/15  loss 0.8734  test_acc 58.51  best 58.51  (431s)
+epoch  14/15  loss 0.8107  test_acc 60.56  best 60.56  (459s)
+epoch  15/15  loss 0.7724  test_acc 60.74  best 60.74  (487s)
+[kd] squeezenet final test accuracy: 60.74%

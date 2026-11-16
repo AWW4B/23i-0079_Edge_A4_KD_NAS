@@ -1,0 +1,45 @@
+{
+  "architecture": {
+    "resolution": 32,
+    "stem_channels": 24,
+    "stages": [
+      {
+        "depth": 2,
+        "channels": 64,
+        "kernel": 5,
+        "block": "dsconv",
+        "act": "relu6",
+        "stride": 1
+      },
+      {
+        "depth": 2,
+        "channels": 16,
+        "kernel": 5,
+        "block": "conv",
+        "act": "hardswish",
+        "stride": 2
+      },
+      {
+        "depth": 1,
+        "channels": 32,
+        "kernel": 5,
+        "block": "dsconv",
+        "act": "hardswish",
+        "stride": 2
+      }
+    ],
+    "head_channels": 256
+  },
+  "val_acc_search": 57.84,
+  "latency_ms": 0.39945000025909394,
+  "model_size_mb": 0.21804,
+  "peak_memory_mb": 13.127679999999998,
+  "params_m": 0.053306,
+  "fitness": 57.00446999974091,
+  "constraints": {
+    "max_latency_ms": 3.0,
+    "max_size_mb": 1.0,
+    "max_peak_memory_mb": 20.0,
+    "max_params_m": 0.5
+  }
+}

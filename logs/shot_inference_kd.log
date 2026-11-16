@@ -1,0 +1,17 @@
+available models: baseline_efficientnet_lite0, baseline_mobilenetv2, baseline_squeezenet, kd_efficientnet_lite0, kd_mobilenetv2, kd_squeezenet, nas_best
+  sample 0: predicted maple_tree      true mouse          
+  sample 1: predicted fox             true fox            
+  sample 2: predicted palm_tree       true shark          
+  sample 3: predicted oak_tree        true oak_tree       
+  sample 4: predicted seal            true seal           
+kd_mobilenetv2 [onnx] accuracy on 5 test samples: 60.00%   (1.25 ms/img incl. preprocessing)
+  sample 0: predicted cat             true cat            
+  sample 1: predicted ship            true ship           
+  sample 2: predicted ship            true ship           
+  sample 3: predicted ship            true airplane       
+  sample 4: predicted frog            true frog           
+nas_best [onnx] accuracy on 5 test samples: 80.00%   (0.73 ms/img incl. preprocessing)
+  sample 0: predicted rocket          true mouse          
+  sample 1: predicted fox             true fox            
+  sample 2: predicted palm_tree       true shark          
+baseline_squeezenet [torch] accuracy on 3 test samples: 33.33%   (4.96 ms/img incl. preprocessing)

@@ -1,0 +1,13 @@
+# Install PyTorch first (pick the build for your machine, see https://pytorch.org/get-started/locally/), e.g. for NVIDIA GPUs:
+#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cu126
+# Then:  pip install -r requirements.txt
+torch>=2.2
+torchvision>=0.17
+numpy>=1.24
+pillow>=10.0
+onnx>=1.15
+onnxruntime>=1.17
+psutil>=5.9
+matplotlib>=3.7
+pandas>=2.0
+reportlab>=4.0
